@@ -1,5 +1,9 @@
 #include "create_list.h"
 
+void createList(listed &l) {
+    l.first = NULL;
+}
+
 address create_Elm(int x) {
     address p;
     p = new elmlist;
@@ -13,10 +17,13 @@ void insert_first(listed &l, address p) {
     l.first = p;
 }
 
-void insert_last(listed &l, address p) {
-    address p1;
-    p1 -> next = p;
-    p1 = p;
+void insertLast(listed &l, address P) {
+    address pointer; 
+    pointer = l.first;
+    while (pointer -> next != NULL) {
+        pointer = pointer -> next;
+    }
+    pointer -> next = P;
 }
 
 void print_info(listed l) {
@@ -45,6 +52,15 @@ int search_info(listed &l, int x) {
     }
 }
 
+// address findElm(List L, infotype x) {
+//     address P;
+//     P = first(L);
+//     while (P != NULL && info(P) != x) {
+//         P = next(P);
+//     }
+//     return P;
+// }
+
 void insert_after(listed &l, address p, address prev) {
     p -> next = prev -> next;
     prev -> next = p;
@@ -60,4 +76,22 @@ void delete_after(listed &l, address p, address prev) {
     p = prev -> next;
     prev -> next = p -> next;
     p -> next = NULL;
+}
+
+void deleteLast(List &L, address &P) {
+    address pointer;
+    pointer = first(L);
+    if (next(pointer) == NULL) {
+        deleteFirst(L, P);
+    } else {
+        while (next(next(pointer)) != NULL) {
+            pointer = next(pointer);
+        }
+        P = next(pointer);
+        next(pointer) = NULL;
+    }
+}
+
+void deallocate(address &p) {
+    delete(p);
 }
