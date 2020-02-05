@@ -78,17 +78,17 @@ void delete_after(listed &l, address p, address prev) {
     p -> next = NULL;
 }
 
-void deleteLast(List &L, address &P) {
+void deleteLast(listed &l, address &p) {
     address pointer;
-    pointer = first(L);
-    if (next(pointer) == NULL) {
-        deleteFirst(L, P);
+    pointer = l.first;
+    if (pointer -> next == NULL) {
+        delete_first(l,p);
     } else {
-        while (next(next(pointer)) != NULL) {
-            pointer = next(pointer);
+        while (pointer -> next -> next) != NULL) {
+            pointer = pointer -> next;
         }
-        P = next(pointer);
-        next(pointer) = NULL;
+        P = pointer -> next;
+        pointer -> next = NULL;
     }
 }
 
