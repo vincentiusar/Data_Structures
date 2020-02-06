@@ -1,4 +1,4 @@
-#include "create_list.h"
+#include "list.h"
 
 // to run this program, please make sure the header file and the file.cpp is in
 // one folder/project and correctly compile it.
@@ -11,11 +11,8 @@ int main() {
     cin >> n;
 
     int x;
-    cin >> x;
-    p = create_Elm(x);
-    l.first = p;
-
-    for (int i = 0 ; i < n - 1; i++) {
+    createList(l);
+    for (int i = 0 ; i < n ; i++) {
         cin >> x; 
         now = create_Elm(x);
         insert_first(l, now);
@@ -24,26 +21,19 @@ int main() {
 
     cout << endl << "Masukkan angka yang ingin dicari dalam linked list : ";
     cin >> x;
-    if (search_info(l, x) != -1) {
-        cout << search_info(l, x) << " Data found";
-    } else {
-        cout << "No Data Found!\n";
+    if (findElm(l, x) == NULL) {
+        cout << "data not found";
+    } else if (x == findElm(l, x) -> data) {
+        cout << "data found! " << findElm(l, x) -> data;
     }
+    cout << endl << endl;
 
     cout << endl << "Masukkan data yang ingin dimmasukkan : ";
     cin >> x;
     cout << "setelah data apa angka tersebut mau dimasukkan : ";
     cin >> n;
-    
-    // Do searching address
-    address pointer;
-    pointer = l.first;
-    while (pointer != NULL && pointer -> data != n) {
-        pointer = pointer -> next;
-    }
-    // If data found, Pointer is pointing to data before x
 
-    insert_after(l, create_Elm(x), pointer);
+    insert_after(l, create_Elm(x), findElm(l, n));
     print_info(l);
 
     cout << "\n--------------\n\nSekarang kita akan mengeluarkan data paling pertama dari linked list\n";
@@ -54,16 +44,11 @@ int main() {
     cout << "\n\nMasukkan angka di mana angka setelahnya mau di delete : ";
     cin >> x;
     
-    pointer = l.first;
-    while (pointer != NULL && pointer -> data != x) {
-        pointer = pointer -> next;
-    }
-
-    delete_after(l, create_Elm(x), pointer);
+    delete_after(l, create_Elm(x), findElm(l, x));
     print_info(l);
-    
-    cout << "\n\nsekarang keadaan list kosong\n\nkita akan melakukan insert data ke list dan langsung mengurutkan data list\n\n";
+
     createList(l);
+    cout << "\n\nsekarang keadaan list kosong\n\nkita akan melakukan insert data ke list dan langsung mengurutkan data list\n\n";
     for (int i = 0; i < 10; i++) {
         cout << "\n\nmasukkan input 1 angka : ";
         cin >> x;
@@ -72,5 +57,14 @@ int main() {
         print_info(l);
     }
     
+    listed l2;
+    cout << "\n\nsekarang keadaan list kosong\nkita akan merging 2 list menjadi 1 list yang terurut accesending";
+    createList(l2);
+    for (int i = 0; i < 5; i++) {
+        cout << "\nmasukkan 1 angka : ";
+        cin >> x;
+        insert_sorted(l, x);
+    }
+
     cout << "Semua fungsi sudah ada di dalam create_list.cpp . Silahkan\njika ingin melihat beberapa fungsi lain yang\ntidak di execute, lakukan pemanggilan sendiri\n\n--terima kasih--";
 }

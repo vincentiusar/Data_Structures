@@ -1,4 +1,4 @@
-#include "create_list.h"
+#include "list.h"
 
 void createList(listed &l) {
     l.first = NULL;
@@ -39,19 +39,6 @@ void print_info(listed l) {
     }
 }
 
-int search_info(listed &l, int x) {
-    address p;
-    p = l.first;
-    while (p != NULL && p -> data != x) {
-        p = p -> next;
-    }
-    if (p != NULL) {
-        return p -> data;
-    } else {
-        return -1;
-    }
-}
-
 address findElm(listed l, int x) {
     address P;
     P = l.first;
@@ -62,8 +49,12 @@ address findElm(listed l, int x) {
 }
 
 void insert_after(listed &l, address p, address prev) {
-    p -> next = prev -> next;
-    prev -> next = p;
+    if (prev == NULL) {
+        insert_first(l, p);
+    } else {
+        p -> next = prev -> next;
+        prev -> next = p;
+    }
 }
 
 void delete_first(listed &l, address p) {

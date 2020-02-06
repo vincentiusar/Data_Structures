@@ -26,3 +26,4 @@ void delete_first(listed &l, address p);
 void delete_after(listed &l, address p, address prev);
 void deleteLast(listed &l, address p);
 void insert_sorted(listed &l, int x);
+void merge_list(listed &l1, listed &l2);
