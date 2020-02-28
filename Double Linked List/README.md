@@ -1,4 +1,1 @@
-# Double linked list files
-
-*main.cpp **NOT READY**
-*list.cpp and list.h **READY!**
+# Sorry, ReadMe not done yet :(
