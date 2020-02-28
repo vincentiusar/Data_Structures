@@ -44,11 +44,6 @@ void insertAfter(List &L, address Prec, address P) {
     }
 }
 
-/*
-    Nama    : Vincentius Arnold Fridolin
-    NIM     : 1301190221
-*/
-
 void insertLast(List &L, address P) {
     if (isEmpty(L)) {
         insertFirst(L, P);
@@ -103,11 +98,6 @@ void concat(List L1, List L2, List &L3) {
     L3.first = L1.first;
     L3.last = L2.last;
 }
-
-/*
-    Nama    : Vincentius Arnold Fridolin
-    NIM     : 1301190221
-*/
 
 double median(List L) {
     address P = L.first;
