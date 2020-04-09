@@ -1,5 +1,4 @@
 #include "grap.h"
-#include <cstdlib>
 
 void cleared() {
     system("cls");
