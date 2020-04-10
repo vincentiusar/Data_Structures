@@ -24,6 +24,7 @@ void postOrder(adrRoot P);     //
 void preOrder(adrRoot P);      //
 void inOrderSucces(adrRoot P, adrRoot T);
 void inOrderPredes(adrRoot P, adrRoot T);
+int countInfoNode(adrRoot P);
 //void deleteRoot(adrRoot &P, infotypeRoot x);
 //void BFS(adrRoot P, );
 //void DFS(adrRoot P, );

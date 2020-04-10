@@ -11,9 +11,8 @@ int main() {
     cin.get();
     cleared();
 
-    cout << "MOHON DIPERHATIKAN BAHWA INI ADALAH BINARY TREE";
+    cout << "MOHON DIPERHATIKAN BAHWA INI ADALAH BINARY TREE\n";
     cout << "Press enter to continue . . .";
-    cin.get();
     cin.get();
     cleared();
 
@@ -31,7 +30,7 @@ int main() {
 
     while (true) {
         cleared();
-        cout << "Mau diapain?\n1. search root\n2. cek full binary tree\n3. cek complete binary tree (belum bisa)\n4. cek skewed binary tree\n5. print tree\n6. inOrder successor BST\n7. inOrder predecessor BST\n8. Delete Root (masih rusak)\n0. Exit\nCHOOSE : ";
+        cout << "Mau diapain?\n1. search root\n2. cek full binary tree\n3. cek complete binary tree (belum bisa)\n4. cek skewed binary tree\n5. print tree\n6. inOrder successor BST\n7. inOrder predecessor BST\n8. Delete Root (masih rusak)\n9. sum of elmt tree\n0. Exit\nCHOOSE : ";
         cin >> n;
         switch (n)
         {
@@ -71,6 +70,9 @@ int main() {
         case 8:
             //cout << "Masukkan root yang dicari : "; cin >> x;
             //deleteRoot(mainRoot, x);
+            break;
+        case 9:
+            cout << countInfoNode(mainRoot) << endl;
             break;
         }
         cout << "Press enter to continue . . .";

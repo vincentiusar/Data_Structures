@@ -119,3 +119,11 @@ void inOrderPredes(adrRoot P, adrRoot T) {
 //         }
 //     }
 // }
+
+int countInfoNode(adrRoot P) {
+    if (P == NULL) {
+        return 0;
+    } else {
+        return P -> info + countInfoNode(P -> left) + countInfoNode(P -> right);
+    }
+}
