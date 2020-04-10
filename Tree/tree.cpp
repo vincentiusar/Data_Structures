@@ -55,21 +55,17 @@ bool skewedBinaryTree(adrRoot T) {
 }
 
 void inOrder(adrRoot P) {
-    if (P == NULL) return;  //bisa diganti jadi...
+    if (P == NULL) return;
 
-    // if (P -> left == NULL)  //ini
     inOrder(P -> left);
     cout << P -> info << " ";
-    // if (P -> right == NULL)  //ini
     inOrder(P -> right);
 }       //print semua ini
 
 void postOrder(adrRoot P) {
     if (P == NULL) return;
 
-    // if (P -> left == NULL)  //ini
     postOrder(P -> left);
-    // if (P -> right == NULL)  //ini
     inOrder(P -> right);
     cout << P -> info << " ";
 }     //
