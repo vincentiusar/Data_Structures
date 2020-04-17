@@ -142,6 +142,44 @@ void deleteNode(Graph &G, infotypeNode st) {
     }
 }
 
+
+bool hasLoop(adrVertek P) {
+    adrEdge Q = P -> firstEdge;
+    while (Q != NULL) {
+        if (Q -> info == P -> info) {
+            return 1;
+        }
+        Q = Q -> nextEdge;
+    }
+    return 0;
+}
+
+bool hasMultiEdge(adrVertek P) {
+    adrEdge Q = P -> firstEdge;
+    while (Q != NULL) {
+        adrEdge R = Q -> nextEdge;
+        while (R != NULL) {
+            if (Q -> info == P -> info) {
+                return 1;
+            }
+            R = R -> nextEdge;
+        }
+        Q = Q -> nextEdge;
+    }
+    return 0;
+}
+
+bool isSimpleGraph(Graph G) {
+    bool flag = 1;
+    for (adrVertek P = G.Start; P != NULL; P = P -> nextNode) {
+        if (hasMultiEdge(P) || hasLoop(P)) {
+            flag = 0;
+        }
+    }
+    return flag;
+}
+
+
 void showNeighbor(Graph G) {
     for (adrVertek P = G.Start; P != NULL; P = P -> nextNode) {
         cout << P -> info << " ||";

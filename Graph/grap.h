@@ -36,4 +36,7 @@ void deleteAfterEdge(adrVertek &P, adrEdge Prec, adrEdge &Q);
 void deleteLastEdge(adrVertek &P, adrEdge &Q);
 void disconnecting(Graph &G, infotypeEdge st1, infotypeEdge st2);
 void deleteNode(Graph &G, infotypeNode st);
+bool hasLoop(adrVertek P);
+bool hasMultiEdge(adrVertek P);
+bool isSimpleGraph(Graph G);
 void showNeighbor(Graph G);

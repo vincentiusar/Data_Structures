@@ -36,6 +36,7 @@ int main() {
         connecting(G, st1, st2);
     }
     cout << "Node sebagai berikut : " << endl; showNeighbor(G);
+	cout << "apakah " << G.Start -> info << " punya loop? " << hasLoop(G.Start) << " Multi Edge? " << hasMultiEdge(G.Start);
     cout << endl << endl << "press enter to continue . . .";
     cin.get();
     cin.get();
